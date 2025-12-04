@@ -4,18 +4,16 @@ import turtle as trtl
 # Make a turtle
 harper = trtl.Turtle()
 
-def drawsquare():
+def drawsquare(length):
     for sides in range(4):
-        harper.forward(30)
+        harper.forward(length)
         harper.right(90)
 
 # Goal: to draw squares with a turtle
 
-drawsquare()
-
-
-harper.forward(60)
-
+drawsquare(62)
+harper.forward(100)
+drawsquare(42)
 
 
 
