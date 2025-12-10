@@ -1,6 +1,8 @@
+#1.2.2 file
 #-----import statements-----
 import turtle as trtl
 import random as rand
+import leaderboard as lb
 
 #-----countdown variables-----
 font_setup = ("Arial", 20, "normal")
@@ -8,10 +10,8 @@ timer = 30
 counter_interval = 1000   #1000 represents 1 second
 timer_up = False
 
-
 #-----countdown writer-----
 counter =  trtl.Turtle()
-
 
 #-----game configuration----
 spot_color = "purple"
@@ -19,6 +19,9 @@ score = 0
 font_setup = ("Arial", 20, "normal")
 
 #-----initialize turtle-----
+leaderboard_file_name = "a122_leaderboard.txt"
+player_name = input("What is your name?")
+
 #Score turtle
 score_writer = trtl.Turtle()
 score_writer.penup()
@@ -98,6 +101,26 @@ def countdown():
     timer -= 1
     counter.getscreen().ontimer(countdown, counter_interval)
 
+# CODE TO ADD
+# Add this function to your game code
+
+# manages the leaderboard for top 5 scorers
+def manage_leaderboard():
+
+  global score
+  global umbreon
+
+  # get the names and scores from the leaderboard file
+  leader_names_list = lb.get_names(leaderboard_file_name)
+  leader_scores_list = lb.get_scores(leaderboard_file_name)
+
+  # show the leaderboard with or without the current player
+  if (len(leader_scores_list) < 5 or score >= leader_scores_list[4]):
+    lb.update_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list, player_name, score)
+    lb.draw_leaderboard(True, leader_names_list, leader_scores_list, umbreon, score)
+
+  else:
+    lb.draw_leaderboard(False, leader_names_list, leader_scores_list, umbreon, score)
 
 #-----events----------------
 umbreon.onclick(spot_clicked)
