@@ -6,7 +6,7 @@ import leaderboard as lb
 
 #-----countdown variables-----
 font_setup = ("Arial", 20, "normal")
-timer = 30
+timer = 5
 counter_interval = 1000   #1000 represents 1 second
 timer_up = False
 
