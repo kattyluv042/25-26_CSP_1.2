@@ -38,5 +38,6 @@ def draw_letter(letter, active_apple):
 
 draw_apple(apple)
 wn.onkeypress(drop_apple, "a")
+
 wn.listen()
 trtl.mainloop()
