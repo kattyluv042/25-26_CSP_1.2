@@ -1,4 +1,5 @@
 import turtle as trtl
+import keyboard
 
 
 # Lists.
@@ -9,9 +10,15 @@ SizeOfBrush =["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 font_setup = ("Arial", 15, "normal")
 directions = trtl.Turtle()
 directions.penup()
-directions.goto(-200, 0)
-directions.write("Press the r,o,y,g,b,p,pk,bk to select a color from our color list", font=font_setup)
+directions.goto(-290, 0)
+directions.write("Press the keys r,o,y,g,b,p,pk,bk to select a color from our color list", font=font_setup)
 wn = trtl.Screen()
 wn.mainloop()
 
 # Key press setup
+
+def change_pencolor(x,y):
+    if keyboard. is_pressed ("r"):
+        trtl.pencolor("red")
+
+
