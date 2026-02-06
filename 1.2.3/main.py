@@ -21,7 +21,6 @@ def draw_apple(active_apple):
   active_apple.shape(apple_image)
   draw_letter("A", active_apple)
   wn.update()
-
 def drop_apple():
   wn.tracer(True)
   apple.goto(apple.xcor(), ground_height)
